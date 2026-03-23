@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+.env
+*.log
+
+# Database
+backend/database/offline_storage.json
+backend/database/*.json.tmp
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
