@@ -4,6 +4,7 @@ fastapi==0.109.2
 uvicorn==0.27.1
 gunicorn==21.2.0
 pydantic==2.6.1
+email-validator==2.1.0.post1
 
 # Data Processing
 pandas==2.2.0
