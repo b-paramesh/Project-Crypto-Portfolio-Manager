@@ -23,11 +23,11 @@ import numpy as np
 
 from config.settings import API_HOST, API_PORT, MAX_WORKERS, DEFAULT_CRYPTOS, SECRET_KEY, JWT_ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES
 from database.mongo_connection import connect_to_mongo, close_mongo_connection, get_database
-from backend.models.schemas import User, Portfolio, Transaction, PyObjectId
-from backend.services.data_collector import CryptoDataCollector, generate_sample_data
-from backend.services.portfolio_manager import PortfolioManager
-from backend.services.alert_system import AlertSystem
-from backend.services.report_generator import ReportGenerator
+from models.schemas import User, Portfolio, Transaction, PyObjectId
+from services.data_collector import CryptoDataCollector, generate_sample_data
+from services.portfolio_manager import PortfolioManager
+from services.alert_system import AlertSystem
+from services.report_generator import ReportGenerator
 from ai_models.risk_analyzer import RiskAnalyzer
 from ai_models.predictor import CryptoPricePredictor
 from ai_models.investment_optimizer import InvestmentOptimizer

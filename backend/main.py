@@ -14,20 +14,20 @@ import asyncio
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from config.settings import API_HOST, API_PORT, MAX_WORKERS, DEFAULT_CRYPTOS
-from backend.services.data_collector import CryptoDataCollector
-from backend.services.portfolio_manager import PortfolioManager
+from services.data_collector import CryptoDataCollector
+from services.portfolio_manager import PortfolioManager
 from ai_models.risk_analyzer import RiskAnalyzer
 from ai_models.predictor import CryptoPricePredictor
 from ai_models.investment_optimizer import InvestmentOptimizer
-from backend.services.alert_system import AlertSystem
-from backend.services.report_generator import ReportGenerator
+from services.alert_system import AlertSystem
+from services.report_generator import ReportGenerator
 from utils.helpers import logger, format_currency, format_percentage
 
 def run_api():
     """Launch the FastAPI server."""
     print(f"\n🔌 Launching FastAPI Server on port {API_PORT}...")
     import uvicorn
-    uvicorn.run("backend.api.server:socket_app", host=API_HOST, port=API_PORT, reload=True)
+    uvicorn.run("api.server:socket_app", host=API_HOST, port=API_PORT, reload=True)
 
 
 def run_analysis():
@@ -128,7 +128,7 @@ def run_analysis():
     async def get_portfolio_data():
         pm = PortfolioManager()
         # Find the first portfolio for the main user (PARAMESH_USER_ID)
-        from backend.api.server import PARAMESH_USER_ID
+        from api.server import PARAMESH_USER_ID
         portfolios = await pm.list_portfolios(str(PARAMESH_USER_ID))
         if portfolios:
             return portfolios[0]
@@ -169,7 +169,7 @@ def run_setup():
     async def setup_async():
         from database.mongo_connection import connect_to_mongo
         await connect_to_mongo()
-        from backend.api.server import seed_initial_data
+        from api.server import seed_initial_data
         await seed_initial_data()
         
     asyncio.run(setup_async())

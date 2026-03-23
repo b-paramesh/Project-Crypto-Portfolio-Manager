@@ -567,7 +567,7 @@ class CryptoPricePredictor:
 
 
 if __name__ == "__main__":
-    from backend.data_collector import generate_sample_data
+    from data_collector import generate_sample_data
 
     print("🤖 Training prediction models...\n")
     datasets = generate_sample_data(["bitcoin", "ethereum"], days=365)
