@@ -1,9 +1,9 @@
 # Stage 1: Build React Frontend
 FROM node:20-slim AS frontend-builder
-WORKDIR /web-build
-COPY web/package*.json ./
+WORKDIR /frontend-build
+COPY frontend/package*.json ./
 RUN npm install
-COPY web/ ./
+COPY frontend/ ./
 
 # Define build arguments for Vite
 ARG VITE_API_BASE
@@ -36,7 +36,7 @@ RUN python -c "import nltk; nltk.download('punkt', quiet=True); nltk.download('a
 COPY . .
 
 # Copy built frontend from Stage 1
-COPY --from=frontend-builder /web-build/dist ./web/dist
+COPY --from=frontend-builder /frontend-build/dist ./frontend/dist
 
 # Expose port (Render uses $PORT)
 EXPOSE 8001
