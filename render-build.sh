@@ -7,7 +7,7 @@ pip install -r requirements.txt
 
 # 2. Build Frontend
 echo "📦 Building Frontend..."
-cd web
+cd frontend
 npm install
 npm run build
 cd ..

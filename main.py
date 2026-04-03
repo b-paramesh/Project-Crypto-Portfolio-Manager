@@ -38,7 +38,7 @@ def run_api():
 def run_dashboard():
     """Launch the React dashboard."""
     print("\n🖥️ Launching AI Crypto Dashboard...")
-    web_dir = Path(__file__).resolve().parent / "web"
+    web_dir = Path(__file__).resolve().parent / "frontend"
     
     if not (web_dir / "node_modules").exists():
         print("📦 node_modules not found. Installing dependencies...")
