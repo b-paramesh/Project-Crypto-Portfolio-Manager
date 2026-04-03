@@ -53,7 +53,7 @@ REPORTS_DIR.mkdir(parents=True, exist_ok=True)
 app.mount("/reports", StaticFiles(directory=str(REPORTS_DIR)), name="reports")
 
 # Mount React static files if they exist (Production)
-WEB_DIST_DIR = Path(__file__).resolve().parent.parent.parent / "web" / "dist"
+WEB_DIST_DIR = Path(__file__).resolve().parent.parent.parent / "frontend" / "dist"
 if WEB_DIST_DIR.exists():
     app.mount("/assets", StaticFiles(directory=str(WEB_DIST_DIR / "assets")), name="assets")
 # Socket.io setup
@@ -447,6 +447,7 @@ async def create_alert(req: AlertRequest, current_user: User = Depends(get_curre
 @app.post("/api/create-alert", summary="Create price alert (alias)")
 async def create_alert_alias(req: AlertRequest, current_user: User = Depends(get_current_user)):
     """Explicitly requested route for alert creation."""
+    print(f"DEBUG: Alias route /api/create-alert called with {req}")
     return await create_alert(req, current_user)
 
 @app.get("/api/alerts", summary="List user alerts")
