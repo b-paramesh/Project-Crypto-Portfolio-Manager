@@ -1,1 +1,16 @@
-.env 
+.env
+node_modules/
+.vite/
+__pycache__/
+*.py[cod]
+*$py.class
+dist/
+build/
+.DS_Store
+*.log
+database/*.db
+database/offline_storage.json
+.vscode/
+.idea/
+*.swp
+*.bak
